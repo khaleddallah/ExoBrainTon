@@ -1,0 +1,745 @@
+<?xml version="1.0"?>
+<robot
+  name="exo_ros_33" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="pi" value="3.141592654" />
+  <link
+    name="pelviz">
+    <inertial>
+      <origin
+        xyz="0.104858925832825 0.142423098334833 0.196983763816381"
+        rpy="0 0 0" />
+      <mass
+        value="0.876180506785054" />
+      <inertia
+        ixx="0.000542716087592879"
+        ixy="-1.88988098707544E-06"
+        ixz="2.77946712790327E-06"
+        iyy="0.00181893616699862"
+        iyz="-2.82148369387847E-05"
+        izz="0.0018274599707449" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/pelviz.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/pelviz.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="hip_left_y">
+    <inertial>
+      <origin
+        xyz="3.91489940153311E-05 0.064658467084771 0.00019501930046692"
+        rpy="0 0 0" />
+      <mass
+        value="0.0865282073086405" />
+      <inertia
+        ixx="6.2898823263754E-06"
+        ixy="-4.76591689072289E-09"
+        ixz="1.97203996620386E-08"
+        iyy="5.150889962998E-06"
+        iyz="-2.37412429486962E-08"
+        izz="1.13918898641058E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_left_y.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_left_y.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_hip_y"
+    type="revolute">
+    <origin
+      xyz="0.22985 -0.24294 0.078481"
+      rpy="1.5708 0 0" />
+    <parent
+      link="pelviz" />
+    <child
+      link="hip_left_y" />
+    <axis
+      xyz="0 1 0" />
+    <limit velocity="6.5" effort="1000" lower="${-pi*0.45}" upper="${pi*0.45}" />
+     <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="l_leg_hip_y" />
+
+  <link
+    name="hip_left_r">
+    <inertial>
+      <origin
+        xyz="0.0267450489884958 -0.0578970138026583 -0.022764403905338"
+        rpy="0 0 0" />
+      <mass
+        value="0.577322611792791" />
+      <inertia
+        ixx="0.00199162169853065"
+        ixy="-2.92633289726122E-06"
+        ixz="-1.3597145517085E-05"
+        iyy="0.000385603527413131"
+        iyz="-0.000341820278449354"
+        izz="0.00181446392966294" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_left_r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_left_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_hip_r"
+    type="revolute">
+    <origin
+      xyz="0 0.0618 0"
+      rpy="0 0 0" />
+    <parent
+      link="hip_left_y" />
+    <child
+      link="hip_left_r" />
+    <axis
+      xyz="-0.0038502 0 0.99999" />
+    <limit velocity="6.5" effort="1000" lower="${-pi*0.2}" upper="${pi*0.3}" />
+     <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="l_leg_hip_r" />
+
+
+  <link
+    name="hip_left_p">
+    <inertial>
+      <origin
+        xyz="0.000116188399237882 -0.159183576861761 0.018732669909887"
+        rpy="0 0 0" />
+      <mass
+        value="0.286678555449467" />
+      <inertia
+        ixx="0.00114218476024795"
+        ixy="4.17774250045193E-07"
+        ixz="6.66598467189894E-07"
+        iyy="9.25186037107998E-05"
+        iyz="0.000208313587693522"
+        izz="0.00105234705913894" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_left_p.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_left_p.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_hip_p"
+    type="revolute">
+    <origin
+      xyz="-0.000190151250868298 -0.141040740535492 0.000764273538165411"
+      rpy="-1.5520679122256 1.36372537683641 -1.55379524725434" />
+    <axis xyz="0 1 0" />
+    <parent
+      link="hip_left_r" />
+    <child
+      link="hip_left_p" />
+    <axis
+      xyz="0 0 1" />
+    <limit velocity="6.5" effort="1000" lower="${-pi*0.4}" upper="${pi*0.4}" />
+     <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="l_leg_hip_p" />
+  <link
+    name="kn_left_p">
+    <inertial>
+      <origin
+        xyz="-0.0290920923453293 -0.127917844640058 -0.0344149100743372"
+        rpy="0 0 0" />
+      <mass
+        value="0.501847197637487" />
+      <inertia
+        ixx="0.000968508521631296"
+        ixy="-0.00014253644827161"
+        ixz="-4.98896343566965E-05"
+        iyy="0.000582614975689886"
+        iyz="-4.29126917684989E-05"
+        izz="0.000745246810998592" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/kn_left_p.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/kn_left_p.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_kn_p"
+    type="revolute">
+    <origin
+      xyz="0 -0.2451 0"
+      rpy="-0.33198 -1.5667 0.56022" />
+    <parent
+      link="hip_left_p" />
+    <child
+      link="kn_left_p" />
+    <axis
+      xyz="0.99999 -0.0013273 0.0038502" />
+  <limit velocity="6.5" effort="1000" lower="${-pi*0.1}" upper="${pi*0.7}" />
+   <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="l_leg_kn_p" />
+  <link
+    name="an_left_p">
+    <inertial>
+      <origin
+        xyz="0.0299480772894787 -0.000490139450893934 -0.0319861956901267"
+        rpy="0 0 0" />
+      <mass
+        value="0.0325752781010226" />
+      <inertia
+        ixx="4.1827946008887E-06"
+        ixy="4.3165498514171E-08"
+        ixz="-1.58654211807752E-12"
+        iyy="6.81954692472972E-06"
+        iyz="2.59657199417668E-14"
+        izz="2.63816524469735E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/an_left_p.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/an_left_p.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_an_p"
+    type="revolute">
+    <origin
+      xyz="-0.00028227 -0.20999 0.00091884"
+      rpy="-1.0239 1.5634 -1.0252" />
+    <parent
+      link="kn_left_p" />
+    <child
+      link="an_left_p" />
+    <axis
+      xyz="0 0 1" />
+    <limit velocity="6.5" effort="1000" lower="${-pi*0.45}" upper="${pi*0.45}" />
+     <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="l_leg_an_p" />
+  <link
+    name="foot_left_r">
+    <inertial>
+      <origin
+        xyz="-0.0369632419415512 -0.04546124148597 0.000479491277962624"
+        rpy="0 0 0" />
+      <mass
+        value="0.204475860340454" />
+      <inertia
+        ixx="2.90497073208471E-05"
+        ixy="-6.56522208553928E-06"
+        ixz="-2.22662489505551E-06"
+        iyy="7.42295471484823E-05"
+        iyz="-1.10264062070131E-07"
+        izz="7.35948390317777E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/foot_left_r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/foot_left_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_an_r"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.0319862168751982"
+      rpy="0.0225659260994187 -0.000369291604219776 -4.16688040508173E-06" />
+    <parent
+      link="an_left_p" />
+    <child
+      link="foot_left_r" />
+    <axis
+      xyz="-0.999866097381136 0.0163642081328786 0" />
+    <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi*0.4}" />
+     <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="l_leg_an_r" />
+  <link
+    name="hip_right_y">
+    <inertial>
+      <origin
+        xyz="-3.60098880210595E-05 0.0646585007264542 0.000195615502412039"
+        rpy="0 0 0" />
+      <mass
+        value="0.0865285747250378" />
+      <inertia
+        ixx="6.28792400897118E-06"
+        ixy="4.38378294955236E-09"
+        ixz="-1.02517952463626E-07"
+        iyy="5.15088991911782E-06"
+        iyz="-2.3813900883028E-08"
+        izz="1.14116218729898E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_right_y.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_right_y.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_hip_y"
+    type="revolute">
+    <origin
+      xyz="-0.0201508725834897 -0.242940802979819 0.078481026971267"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="pelviz" />
+    <child
+      link="hip_right_y" />
+    <axis
+      xyz="0 1 0" />
+    <limit velocity="6.5" effort="1000" lower="${-pi*0.45}" upper="${pi*0.45}" />
+     <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_leg_hip_y" />
+  <link
+    name="hip_right_r">
+    <inertial>
+      <origin
+        xyz="-0.0281204156627468 -0.0574298724097848 -0.0233214951273971"
+        rpy="0 0 0" />
+      <mass
+        value="0.577328048094972" />
+      <inertia
+        ixx="0.0019911506063478"
+        ixy="-3.02166901134011E-05"
+        ixz="4.67708719458098E-06"
+        iyy="0.000385657690986371"
+        iyz="-0.000341155469876319"
+        izz="0.00181430252622785" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_right_r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_right_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_hip_r"
+    type="revolute">
+    <origin
+      xyz="0 0.0617999999999999 0"
+      rpy="0.000611129957313708 -1.52465930505774E-19 0.03066452600196" />
+    <parent
+      link="hip_right_y" />
+    <child
+      link="hip_right_r" />
+    <axis
+      xyz="0.0199193369534882 0 0.999801590324467" />
+    <limit velocity="6.5" effort="1000" lower="${-pi*0.3}" upper="${pi*0.2}" />
+     <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_leg_hip_r" />
+  <link
+    name="hip_right_p">
+    <inertial>
+      <origin
+        xyz="-0.000119618394748305 -0.159183675797561 0.0186713820055504"
+        rpy="0 0 0" />
+      <mass
+        value="0.286678786770336" />
+      <inertia
+        ixx="0.00114082283895834"
+        ixy="-4.92449747490006E-07"
+        ixz="-6.32813919597187E-07"
+        iyy="9.11577765871152E-05"
+        iyz="0.000207600861223223"
+        izz="0.00105234571661871" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_right_p.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/hip_right_p.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_hip_p"
+    type="revolute">
+    <origin
+      xyz="-0.00224563414996934 -0.141023053693907 -0.000190306199193579"
+      rpy="-1.30747180450226 -1.49420421154988 1.29231310022966" />
+    <parent
+      link="hip_right_r" />
+    <child
+      link="hip_right_p" />
+    <axis
+      xyz="0 0 -1" />
+    <limit velocity="6.5" effort="1000" lower="${-pi*0.4}" upper="${pi*0.4}" />
+     <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_leg_hip_p" />
+  <link
+    name="kn_right_p">
+    <inertial>
+      <origin
+        xyz="0.0268771429724586 -0.129133258163332 -0.0320135317528766"
+        rpy="0 0 0" />
+      <mass
+        value="0.501849157200272" />
+      <inertia
+        ixx="0.000974619665860643"
+        ixy="0.000136228288494725"
+        ixz="4.23829899706871E-05"
+        iyy="0.000575898524589217"
+        iyz="-4.22724491114263E-05"
+        izz="0.000745670509427132" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/kn_right_p.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/kn_right_p.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_kn_p"
+    type="revolute">
+    <origin
+      xyz="0 -0.245095328703611 0"
+      rpy="0.673236241644809 1.54530624534361 0.652019335309999" />
+    <parent
+      link="hip_right_p" />
+    <child
+      link="kn_right_p" />
+    <axis
+      xyz="0.999675145463739 -0.0158918383837859 -0.0199261891699496" />
+    <limit velocity="6.5" effort="1000" lower="${-pi*0.7}" upper="${pi*0.1}" />
+     <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_leg_kn_p" />
+  <link
+    name="an_right_p">
+    <inertial>
+      <origin
+        xyz="0.02995 -0.00035271 0.032486"
+        rpy="0 0 0" />
+      <mass
+        value="0.032575" />
+      <inertia
+        ixx="4.1825E-06"
+        ixy="3.1065E-08"
+        ixz="-1.5603E-12"
+        iyy="6.8199E-06"
+        iyz="1.8375E-14"
+        izz="2.6382E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/an_right_p.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/an_right_p.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_an_p"
+    type="revolute">
+    <origin
+      xyz="-0.0032248 -0.2099 0.0056129"
+      rpy="1.8156 1.4885 1.7989" />
+    <parent
+      link="kn_right_p" />
+    <child
+      link="an_right_p" />
+    <axis
+      xyz="0 0 1" />
+    <limit velocity="6.5" effort="1000" lower="${-pi*0.45}" upper="${pi*0.45}" />
+     <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_leg_an_p" />
+
+  <link
+    name="foot_right_r">
+    <inertial>
+      <origin
+        xyz="-0.037135 -0.045448 -0.0019367"
+        rpy="0 0 0" />
+      <mass
+        value="0.19985" />
+      <inertia
+        ixx="2.8497E-05"
+        ixy="-8.0822E-06"
+        ixz="1.6545E-06"
+        iyy="6.411E-05"
+        iyz="1.1206E-07"
+        izz="6.3614E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/foot_right_r.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://exo_ros_33/meshes/foot_right_r.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_an_r"
+    type="revolute">
+    <origin
+      xyz="0 0 0.032486"
+      rpy="-0.014623 0.00017221 -1.2591E-06" />
+    <parent
+      link="an_right_p" />
+    <child
+      link="foot_right_r" />
+    <axis
+      xyz="-0.99993 0.011776 0" />
+    <limit velocity="6.5" effort="1000" lower="${-pi*0.45}" upper="${pi*0.45}" />>
+     <dynamics damping="0.9" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_leg_an_r" />
+
+
+    <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/exo_ros_33</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <xacro:macro name="insert_transmission" params="name">
+    <transmission name="${name}_tran">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${name}">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      
+      <actuator name="${name}_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
+</robot>

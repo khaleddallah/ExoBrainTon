@@ -1,0 +1,857 @@
+<?xml version="1.0"?>
+<!--black 0.1882 0.1411 0.133333 -->
+<!--red 0.8196 0.22 0.1608 -->
+<!-- white 0.89 0.8 0.78 -->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">	
+
+    <xacro:property name="pi" value="3.141592654" />
+
+    <xacro:macro name="thormang3_l_leg" params="parent">
+
+	<!-- left hip yaw joint -->
+  <link
+    name="l_leg_hip_y_link">
+    <inertial>
+      <origin
+        xyz="0.000194866698194046 3.98997327107631E-05 0.00285846754175562"
+        rpy="0 0 0" />
+      <mass
+        value="0.0865282088524624" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/l_leg_hip_y_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.8196 0.22 0.1608 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/l_leg_hip_y_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_hip_y"
+    type="revolute">
+    <origin
+      xyz="0.023 0.125 -0.0813"
+      rpy="0 0 0" />
+    <parent
+      link="pelvis_link" />
+    <child
+      link="l_leg_hip_y_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="l_leg_hip_y" />
+  <link
+    name="l_leg_hip_r_link">
+    <inertial>
+      <origin
+        xyz="-0.0228672177413694 0.0267340296554695 -0.057861572875431"
+        rpy="0 0 0" />
+      <mass
+        value="0.577322605082582" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/l_leg_hip_r_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89 0.8 0.78 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/l_leg_hip_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_hip_r"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="l_leg_hip_y_link" />
+    <child
+      link="l_leg_hip_r_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="l_leg_hip_r" />
+  <link
+    name="l_leg_hip_p_link">
+    <inertial>
+      <origin
+        xyz="-0.000116198463840173 0.0284688740026196 -0.159183589997654"
+        rpy="0 0 0" />
+      <mass
+        value="0.286678540994592" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/l_leg_hip_p_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1882 0.1411 0.133333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/l_leg_hip_p_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_hip_p"
+    type="revolute">
+    <origin
+      xyz="0.000765 -0.0097362 -0.14104"
+      rpy="0 0 0" />
+    <parent
+      link="l_leg_hip_r_link" />
+    <child
+      link="l_leg_hip_p_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="l_leg_hip_p" />
+  <link
+    name="l_leg_kn_p_link">
+    <inertial>
+      <origin
+        xyz="-0.0348628624504665 -0.0190683597425377 -0.127805036988548"
+        rpy="0 0 0" />
+      <mass
+        value="0.501847265279983" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/l_leg_kn_p_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.8196 0.22 0.1608 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/l_leg_kn_p_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_kn_p"
+    type="revolute">
+    <origin
+      xyz="0 -0.00025 -0.2451"
+      rpy="0 0 0" />
+    <parent
+      link="l_leg_hip_p_link" />
+    <child
+      link="l_leg_kn_p_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="l_leg_kn_p" />
+  <link
+    name="l_leg_an_p_link">
+    <inertial>
+      <origin
+        xyz="-0.0299520881007188 2.09226775349514E-08 3.0086740876456E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.0325752774497041" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/l_leg_an_p_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89 0.8 0.78 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/l_leg_an_p_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_an_p"
+    type="revolute">
+    <origin
+      xyz="0 -0.022 -0.21"
+      rpy="0 0 0" />
+    <parent
+      link="l_leg_kn_p_link" />
+    <child
+      link="l_leg_an_p_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="l_leg_an_p" />
+  <link
+    name="l_leg_an_r_link">
+    <inertial>
+      <origin
+        xyz="0.0362143728561817 0.00041776190047349 -0.0460605874777161"
+        rpy="0 0 0" />
+      <mass
+        value="1.20447635642258" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <box size="0.2 0.2 0.13"/> -->
+        <mesh
+          filename="package://thormang3_description/meshes/l_leg_an_r_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1882 0.1411 0.133333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.1 0.3 0"
+        rpy="0 0 0" />
+      <geometry>
+         <box size="0.4 0.3 0.13"/>
+<!--         <mesh
+          filename="package://thormang3_description/meshes/l_leg_an_r_link.STL" /> -->
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_leg_an_r"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="l_leg_an_p_link" />
+    <child
+      link="l_leg_an_r_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="l_leg_an_r" />
+
+
+	<!-- left ft joint -->
+<!--         <joint name="l_leg_ft" type="revolute">
+          <origin xyz="-0.057 0.0 -0.087" rpy="0 0 0"/>
+          <parent link="l_leg_an_r_link"/>
+          <child link="l_leg_foot_link"/>
+		  <limit velocity="6.5" effort="1000" lower="0" upper="0" />
+        </joint>  -->
+
+	<!-- left foot link -->
+<!--         <link name="l_leg_foot_link"> -->
+    	 <!--  <collision>
+      	    <origin xyz="0 0.014 -0.02" rpy="0 0 0"/>
+      	    <geometry>
+              <box size="0.22 0.15 0.015" />
+      	    </geometry>
+    	  </collision>
+
+   	  <visual>
+      	    <origin xyz="0 0 0" rpy="0 0 0"/>
+      	    <geometry>
+              <mesh filename="package://thormang3_description/meshes/robotis_l_leg_foot.stl" scale="0.001 0.001 0.001"/>
+      	    </geometry>
+      	    <material name="grey"/>
+    	  </visual>
+ -->
+<!--           <inertial>
+      	    <origin xyz="0.000 0.009 -0.013" rpy="0 0 0"/>
+      	    <mass value="1.689"/>
+      	    <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />  -->
+            <!-- <inertia ixx="0.00219" ixy="0.0" ixz="0.0" iyy="0.00433" iyz="0.00011" izz="0.00609" /> -->
+<!--     	  </inertial>
+        </link> -->
+
+	<!-- left ft fixed joint -->
+<!--         <joint name="l_leg_ft_fixed" type="fixed">
+          <origin xyz="0.0 0.0 0.0" rpy="${pi} 0 0"/>
+          <parent link="l_leg_foot_link"/>
+          <child link="l_foot_ft_link"/>
+        </joint> 
+ -->
+	<!-- left foot ft link -->
+<!--         <link name="l_foot_ft_link">
+        </link>
+ -->
+    </xacro:macro>
+
+    <xacro:macro name="thormang3_r_leg" params="parent">
+
+	<!-- right hip yaw joint -->
+       <link
+    name="r_leg_hip_y_link">
+    <inertial>
+      <origin
+        xyz="0.000194859448184315 -3.99012608066768E-05 0.00285850027010753"
+        rpy="0 0 0" />
+      <mass
+        value="0.0865285731833129" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0.25 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/r_leg_hip_y_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.8196 0.22 0.1608 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0.25 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/r_leg_hip_y_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_hip_y"
+    type="revolute">
+    <origin
+      xyz="0.023 -0.125 -0.0813"
+      rpy="0 0 0" />
+    <parent
+      link="pelvis_link" />
+    <child
+      link="r_leg_hip_y_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="r_leg_hip_y" />
+  <link
+    name="r_leg_hip_r_link">
+    <inertial>
+      <origin
+        xyz="-0.023877009103276 -0.0267341360094503 -0.0578620358278071"
+        rpy="0 0 0" />
+      <mass
+        value="0.577327897793504" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/r_leg_hip_r_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89 0.8 0.78 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/r_leg_hip_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_hip_r"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="r_leg_hip_y_link" />
+    <child
+      link="r_leg_hip_r_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="r_leg_hip_r" />
+  <link
+    name="r_leg_hip_p_link">
+    <inertial>
+      <origin
+        xyz="-0.000119608407726818 -0.0284075969398045 -0.159183646260211"
+        rpy="0 0 0" />
+      <mass
+        value="0.286679006041324" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/r_leg_hip_p_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1882 0.1411 0.133333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/r_leg_hip_p_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_hip_p"
+    type="revolute">
+    <origin
+      xyz="-0.000235 0.0097362 -0.14104"
+      rpy="0 0 0" />
+    <parent
+      link="r_leg_hip_r_link" />
+    <child
+      link="r_leg_hip_p_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="r_leg_hip_p" />
+  <link
+    name="r_leg_kn_p_link">
+    <inertial>
+      <origin
+        xyz="-0.0348599742971025 0.0190722316896734 -0.127803416335954"
+        rpy="0 0 0" />
+      <mass
+        value="0.501848142816981" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/r_leg_kn_p_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.8196 0.22 0.1608 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/r_leg_kn_p_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_kn_p"
+    type="revolute">
+    <origin
+      xyz="0 0.00075 -0.2451"
+      rpy="0 0 0" />
+    <parent
+      link="r_leg_hip_p_link" />
+    <child
+      link="r_leg_kn_p_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="r_leg_kn_p" />
+  <link
+    name="r_leg_an_p_link">
+    <inertial>
+      <origin
+        xyz="-0.0299520881006903 2.09226773250498E-08 3.00867425417906E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.0325752774497039" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/r_leg_an_p_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89 0.8 0.78 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/r_leg_an_p_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_an_p"
+    type="revolute">
+    <origin
+      xyz="0 0.022 -0.21"
+      rpy="0 0 0" />
+    <parent
+      link="r_leg_kn_p_link" />
+    <child
+      link="r_leg_an_p_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="r_leg_an_p" />
+  <link
+    name="r_leg_an_r_link">
+    <inertial>
+      <origin
+        xyz="0.0365974815210963 -0.00127278229934455 -0.0459051713323503"
+        rpy="0 0 0" />
+      <mass
+        value="1.20447635642258" />
+      <inertia
+        ixx="1.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1.0"
+        iyz="0.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://thormang3_description/meshes/r_leg_an_r_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.1882 0.1411 0.133333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.1 -0.3 0"
+        rpy="0 0 0" />
+      <geometry>
+         <box size="0.4 -0.3 0.13"/>
+<!--         <mesh
+          filename="package://thormang3_description/meshes/r_leg_an_r_link.STL" /> -->
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_leg_an_r"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="r_leg_an_p_link" />
+    <child
+      link="r_leg_an_r_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit 
+      velocity="6.5" 
+      effort="1000" 
+      lower="-2.826" 
+      upper="2.826" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.0" />
+  </joint> 
+<xacro:insert_transmission name="r_leg_an_r" />
+
+	<!-- right ft joint -->
+<!--         <joint name="r_leg_ft" type="revolute">
+          <origin xyz="-0.057 0.0 -0.087" rpy="0 0 0"/>
+          <parent link="r_leg_an_r_link"/>
+          <child link="r_leg_foot_link"/>
+		  <limit velocity="6.5" effort="1000" lower="0" upper="0" />
+        </joint>  -->
+
+	<!-- right foot link -->
+<!--         <link name="r_leg_foot_link">
+    	  <collision>
+      	    <origin xyz="0 -0.014 -0.02" rpy="0 0 0"/>
+      	    <geometry>
+              <box size="0.22 0.15 0.015" />
+      	    </geometry>
+    	  </collision>
+
+   	  <visual>
+      	    <origin xyz="0 0 0" rpy="0 0 0"/>
+      	    <geometry>
+              <mesh filename="package://thormang3_description/meshes/robotis_r_leg_foot.stl" scale="0.001 0.001 0.001"/>
+      	    </geometry>
+      	    <material name="grey"/>
+    	  </visual>
+
+          <inertial>
+      	    <origin xyz="0.000 -0.009 -0.013" rpy="0 0 0"/>
+      	    <mass value="1.689"/>
+      	    <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+            <! <inertia ixx="0.00219" ixy="0.0" ixz="0.0" iyy="0.00433" iyz="-0.00011" izz="0.00609" /> -->
+    <!--	  </inertial>
+        </link> -->
+
+	<!-- right ft fixed joint -->
+<!--         <joint name="r_leg_ft_fixed" type="fixed">
+          <origin xyz="0.0 0.0 0.0" rpy="${pi} 0 0"/>
+          <parent link="r_leg_foot_link"/>
+          <child link="r_foot_ft_link"/>
+        </joint> 
+ -->
+	<!-- right foot ft link -->
+<!--         <link name="r_foot_ft_link">
+        </link>
+ -->
+    </xacro:macro>
+
+</robot>

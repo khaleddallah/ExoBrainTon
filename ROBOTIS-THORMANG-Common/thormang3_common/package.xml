@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>thormang3_common</name>
+  <version>0.1.3</version>
+  <description>ROS packages for the thormang3_common (meta package)</description>
+  <license>BSD</license>
+  <author email="sch@robotis.com">SCH</author>
+  <author email="kmjung@robotis.com">Kayman</author>
+  <maintainer email="pyo@robotis.com">Pyo</maintainer>
+  <url type="bugtracker">https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common/issues</url>
+  <url type="repository">https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common</url>
+  <url type="website">http://wiki.ros.org/thormang3_common</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>thormang3_description</run_depend>
+  <run_depend>thormang3_gazebo</run_depend>
+  <export><metapackage/></export>
+</package>

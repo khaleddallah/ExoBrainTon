@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+
+<launch>    
+    <param name="robot_description"
+    command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'" />
+    
+    <!-- send joint values -->
+    <node name="robotis_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="true"/>
+        <param name="rate" value="30"/>
+        <remap from="/joint_states" to="/robotis/motor" />
+        <rosparam param="source_list">["robotis/motor"]</rosparam>
+    </node>
+</launch>

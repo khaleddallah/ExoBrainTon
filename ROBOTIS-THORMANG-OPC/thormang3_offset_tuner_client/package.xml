@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+  <name>thormang3_offset_tuner_client</name>
+  <version>0.2.0</version>
+  <description>
+     The GUI program that can adjust offset of THORMANG3.
+     It is used with the thormang3_offset_tuner_server.
+  </description>
+  <license>BSD</license>
+  <author email="kmjung@robotis.com">Kayman</author>
+  <maintainer email="pyo@robotis.com">Pyo</maintainer>
+  <url type="bugtracker">https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-OPC/issues</url>
+  <url type="repository">https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-OPC</url>
+  <url type="website">http://wiki.ros.org/thormang3_offset_tuner_client</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>qt_build</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>libqt4-dev</build_depend>
+  <build_depend>thormang3_offset_tuner_msgs</build_depend>
+  <build_depend>thormang3_foot_step_generator</build_depend>
+  <run_depend>qt_build</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>libqt4-dev</run_depend>
+</package>

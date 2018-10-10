@@ -1,0 +1,4 @@
+<?xml version = "1.0" encoding ="UTF-8"?>
+<launch>
+	<node name = "dyn_rec" pkg ="rqt_reconfigure" type ="rqt_reconfigure" args ="--slider-file $(find thormang3_manager)/config/dr.yaml" />
+</launch>

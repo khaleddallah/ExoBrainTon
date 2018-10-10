@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="robot_name" default="thormang3" />
+  <arg name="l_hand_type" default="$(optenv L_HAND_TYPE none)" />
+  <arg name="r_hand_type" default="$(optenv R_HAND_TYPE none)" />
+  <arg name="pinned" default="False" />
+
+  <include file="$(find thormang3_description)/launch/load_robot_description.launch" pass_all_args="true" />
+  <param name="use_gui" value="True"/>
+<!-- 
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+   -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find thormang3_description)/rviz/xacrodisplay.rviz"/>
+</launch>

@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+
+<launch>    
+    <arg name="use_present" default="FALSE" />
+    
+<!--     <param name="robot_description"
+    command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'" />
+     -->
+
+
+     <param name="robot_description"
+     command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'" />
+    <!-- send joint values -->
+    <node name="robotis_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="FALSE"/>
+        <param name="rate" value="30"/>
+        <remap from="/joint_states" to="/robotis/thormang3/joint_states" />
+        <!--remap from="/joint_states" to="/robotis/joint_states" /-->
+        <rosparam param="source_list" if="$(arg use_present)">["robotis/thormang3/present_joint_states"]</rosparam>
+        <rosparam param="source_list" unless="$(arg use_present)">["robotis/goal_joint_states_n"]</rosparam>
+    </node>
+
+    <!-- Combine joint values to TF-->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+        <remap from="/joint_states" to="/robotis/thormang3/joint_states"/>
+        <!--remap from="/joint_state" to="/robotis/joint_states" /-->
+    </node>
+
+    <!-- Gripper Pub-->
+    <node name="thormang3_rviz_pub" pkg="thormang3_description" type="thormang3_rviz_pub">
+    </node>
+
+</launch>
+
+
+<!--        <remap from="/joint_states" to="/robotis/thormang3/joint_states" /> -->

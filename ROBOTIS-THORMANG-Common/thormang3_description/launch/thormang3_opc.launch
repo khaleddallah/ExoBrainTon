@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<launch>
+    <!-- Robot Model -->
+    <!--param name="robot_description"
+    command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'" /-->
+
+    <!-- Show joint values -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="TRUE"/>
+        <remap from="/joint_states" to="/robotis/goal_joint_states" />
+        <rosparam param="source_list">["/robotis/thormang3/joint_states"]</rosparam>
+    </node>
+
+    <!-- Show in Rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find thormang3_description)/launch/thormang3_display.rviz" output="screen"/>
+
+</launch>

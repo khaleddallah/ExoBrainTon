@@ -1,0 +1,45 @@
+publish_interval: 100
+settings:
+  /change_param/cob_x_offset_m: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/cob_y_offset_m: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_pitch_angle_d_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_pitch_angle_p_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_pitch_gyro_d_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_pitch_gyro_p_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_pitch_torque_cut_off_frequency: {is_repeat: false, max: 1.0,
+    min: -1.0}
+  /change_param/foot_pitch_torque_d_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_pitch_torque_p_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_roll_angle_d_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_roll_angle_p_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_roll_gyro_d_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_roll_gyro_p_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_roll_torque_cut_off_frequency: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_roll_torque_d_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_roll_torque_p_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_x_force_cut_off_frequency: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_x_force_d_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_x_force_p_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_y_force_cut_off_frequency: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_y_force_d_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_y_force_p_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_z_force_cut_off_frequency: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_z_force_d_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/foot_z_force_p_gain: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/hip_roll_swap_angle_rad: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/pitch_angle_cut_off_frequency: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/pitch_gyro_cut_off_frequency: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/roll_angle_cut_off_frequency: {is_repeat: false, max: 1.0, min: -1.0}
+  /change_param/roll_gyro_cut_off_frequency: {is_repeat: false, max: 1.0, min: -1.0}
+texts: [/change_param/cob_x_offset_m, /change_param/cob_y_offset_m, /change_param/hip_roll_swap_angle_rad,
+  /change_param/foot_roll_gyro_p_gain, /change_param/foot_roll_gyro_d_gain, /change_param/foot_pitch_gyro_p_gain,
+  /change_param/foot_pitch_gyro_d_gain, /change_param/foot_roll_angle_p_gain, /change_param/foot_roll_angle_d_gain,
+  /change_param/foot_pitch_angle_p_gain, /change_param/foot_pitch_angle_d_gain, /change_param/foot_x_force_p_gain,
+  /change_param/foot_x_force_d_gain, /change_param/foot_y_force_p_gain, /change_param/foot_y_force_d_gain,
+  /change_param/foot_z_force_p_gain, /change_param/foot_z_force_d_gain, /change_param/foot_roll_torque_p_gain,
+  /change_param/foot_roll_torque_d_gain, /change_param/foot_pitch_torque_p_gain, /change_param/foot_pitch_torque_d_gain,
+  /change_param/roll_gyro_cut_off_frequency, /change_param/pitch_gyro_cut_off_frequency,
+  /change_param/roll_angle_cut_off_frequency, /change_param/pitch_angle_cut_off_frequency,
+  /change_param/foot_x_force_cut_off_frequency, /change_param/foot_y_force_cut_off_frequency,
+  /change_param/foot_z_force_cut_off_frequency, /change_param/foot_roll_torque_cut_off_frequency,
+  /change_param/foot_pitch_torque_cut_off_frequency]

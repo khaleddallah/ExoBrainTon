@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<launch>    
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="robot_name" default="thormang3" />
+  <arg name="l_hand_type" default="$(optenv L_HAND_TYPE none)" />
+  <arg name="r_hand_type" default="$(optenv R_HAND_TYPE none)" />
+  <arg name="pinned" default="false"/>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find thormang3_description)/urdf/thormang3.xacro'
+    robot_name:=$(arg robot_name)
+    l_hand_type:=$(arg l_hand_type)
+    r_hand_type:=$(arg r_hand_type)
+    pinned:=$(arg pinned)" />
+</launch>

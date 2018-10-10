@@ -1,0 +1,30 @@
+hip_kx : 2
+hip_ky : 2
+an_kx  : 2
+an_ky  : 2
+
+
+
+
+r_leg_hip_y_ofst : 0
+r_leg_hip_r_ofst : 0
+r_leg_hip_p_ofst : 0
+r_leg_kn_p_ofst  : 0
+r_leg_an_p_ofst  : 0
+r_leg_an_r_ofst  : 0
+
+l_leg_hip_y_ofst : 0
+l_leg_hip_r_ofst : 0
+l_leg_hip_p_ofst : 0
+l_leg_kn_p_ofst  : 0
+l_leg_an_p_ofst  : 0
+l_leg_an_r_ofst  : 0
+
+
+
+
+
+
+
+
+
